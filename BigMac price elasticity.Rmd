@@ -1,0 +1,73 @@
+---
+title: "BigMac"
+author: "Adreanna Morales"
+date: "2/7/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Introdcution
+Get an estimated demand curve for BigMacs
+```{r}
+BigMacData = read.csv('BigMac.csv')
+attach(BigMacData)
+```
+
+
+plot the data
+```{r}
+plot(demand, price)
+```
+
+
+fit a demand line to these data
+
+```{r}
+priceOne= 4.95
+model1 = lm(price~demand)
+summary(model1)
+plot(demand, price)
+abline(model1)
+abline (h = priceOne, col='red')
+```
+
+
+
+price elasticity is the % change in quantity demanded divided by the % change in price elasticity
+
+marginal revenue of any product is the dadditional revenue for saless of one additional Big Mac
+
+Marginal Revenue is related to price elasticity by 
+
+MR = price * (1 = elasticity)/elasticity)
+
+Mickey D's MR = MC
+
+E = slope of demand at price p * (price/quantity)
+
+```{r}
+slope = model1$coefficients[2]
+intercept =model1$coefficients[1]
+demanded = (priceOne- intercept)/slope
+
+E = slope*priceOne/demanded
+
+MR = priceOne * ((1+E)/E)
+
+print(paste('price =', priceOne))
+print(paste('MR = ', round(MR, 2)))
+print(paste('elasticity =', round(E, 2)))
+print(paste('MR = ', round(MR, 2)))
+
+```
+
+Profit = price - cost = 4.5- MC 
+
+```{r}
+profit = priceOne - MR
+print(paste('profit = ', profit))
+```
+
