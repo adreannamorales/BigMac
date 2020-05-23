@@ -21,7 +21,8 @@ plot the data
 ```{r}
 plot(demand, price)
 ```
-
+x axis = demand
+y axis = price
 
 fit a demand line to these data
 
@@ -63,6 +64,16 @@ print(paste('elasticity =', round(E, 2)))
 print(paste('MR = ', round(MR, 2)))
 
 ```
+Slope
+y = mx + b
+
+abs = absolute value
+
+MR = $1.41/Big Mac, they make $1.41 for every Big Mac made.
+
+Adding round gets rid of the many numbers after the decimal place.
+
+Profit for Big Mac:
 
 Profit = price - cost = 4.5- MC 
 
